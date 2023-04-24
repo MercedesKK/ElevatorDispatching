@@ -23,16 +23,13 @@
 import myElevator from "../components/myElevator.vue"
 import myNavBar from "../components/myNavBar.vue"
 import myBoard from "../components/myBoard.vue"
-import { getCurrentInstance, onMounted } from "vue";
+import { getCurrentInstance } from "vue";
 
 const elevator_number = 5;
-let currentInstance;
+const currentInstance = getCurrentInstance()
 
 
-/// 钩子函数
-onMounted(() => {
-  currentInstance = getCurrentInstance();
-});
+
 
 // 返回所有电梯中task_queue中任务最少的
 const caculateMinTasks = elevators => {
