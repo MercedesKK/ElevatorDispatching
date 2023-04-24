@@ -26,7 +26,9 @@ import myBoard from "../components/myBoard.vue"
 import { getCurrentInstance } from "vue";
 
 const elevator_number = 5;
-const currentInstance = getCurrentInstance()
+// const currentInstance = getCurrentInstance()
+
+const { proxy } = getCurrentInstance();
 
 
 
@@ -64,17 +66,17 @@ const caculateMinDistance = (candidate_queue, floor_calling, elevators) => {
 
 /// 我自己不用管的，子组件电梯当开门的时候会自动传入这里
 const upArriveInteraction = (floor) => {
-  currentInstance.ctx.$refs.floor_board.buttons_group[floor - 1].up = false;
+  proxy.$refs.floor_board.buttons_group[floor - 1].up = false;
 };
 const downArriveInteraction = (floor) => {
-  currentInstance.ctx.$refs.floor_board.buttons_group[floor - 1].down = false;
+  proxy.$refs.floor_board.buttons_group[floor - 1].down = false;
 }
 
 //todo 按了之后过去之后要复原的
 const upHandle = (argv) => {
   console.log(argv);
 
-  let elevators = currentInstance.ctx.$refs.elevator_group; // 电梯组件（列表）
+  let elevators = proxy.$refs.elevator_group; // 电梯组件（列表）
   let { direction_calling, floor_calling } = argv; // 本次从子组件上传的呼叫方向和电梯数
   let candidate_queue = []; // 存放已经候选的电梯下标
 
@@ -117,7 +119,7 @@ const upHandle = (argv) => {
 const downHandle = (argv) => {
   console.log(argv);
 
-  let elevators = currentInstance.ctx.$refs.elevator_group; // 电梯组件（列表）
+  let elevators = proxy.$refs.elevator_group; // 电梯组件（列表）
   let { direction_calling, floor_calling } = argv; // 本次从子组件上传的呼叫方向和电梯数
   let candidate_queue = []; // 存放已经候选的电梯下标
 
