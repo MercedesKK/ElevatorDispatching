@@ -17,6 +17,7 @@ npm run serve
 ```
 
 ## 开发环境
+环境配置：node.js
 
 开发框架：vue3、Element-plus、Ant Design Vue
 
