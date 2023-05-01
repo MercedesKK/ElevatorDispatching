@@ -20,11 +20,36 @@ npm run serve
 
 开发框架：vue3、Element-plus、Ant Design Vue
 
-开发语言：JavaScript
+开发语言：JavaScript、html、css
 
 ### 简要说明
 
 ​		虽然JavaScript为单线程语言，但事件、DOM操作、ajax、定时器（setTimeOut、setImmediate）、Promise、async/await等为异步任务。当同步任务执行结束后（组价挂载等），任务队列中的异步任务开始执行，故可以异步完成电梯调度。
+
+### 项目结构
+
+```
+.
+├─ public
+│    ├─ favicon.ico
+│    └─ index.html
+└─ src
+    ├─ App.vue
+    ├─ assets
+    │    ├─ logo.png
+    │    └─ myPhoto.png
+    ├─ components
+    │    ├─ myBoard.vue
+    │    ├─ myElevator.vue
+    │    └─ myNavBar.vue
+    ├─ main.js
+    ├─ router
+    │    └─ index.js
+    ├─ store
+    │    └─ index.js
+    └─ views
+    └─ HomeView.vue
+```
 
 
 
@@ -142,9 +167,7 @@ const updateStatus = () => {
 1. 若有电梯处于静止状态，或有同方向的正在运行的电梯，则距离当前最近的电梯来接。
 2. 若当前五部电梯都处于运行状态，但没有同方向正在运行的电梯，则选择所有电梯中task_queue最任务最少的。
 
-上行算法（下行同理）
-
-​		
+上行算法如下：（下行同理）
 
 ```js
 const upHandle = (argv) => {
@@ -188,3 +211,8 @@ const upHandle = (argv) => {
 }
 ```
 
+
+
+#### 作者
+
+**联系方式** 2455650395@qq.com
